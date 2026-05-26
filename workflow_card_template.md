@@ -59,7 +59,6 @@ A high-level picture of the run as a whole: what it did, how it performed, what 
 | `arguments` | Optional | Global arguments or configuration flags that governed the entire run — anything affecting reproducibility such as random seeds, determinism flags, or boolean toggles. The set of keys is not prescribed; document whatever is relevant to your workflow. |
 | `significant inputs` | Required if inputs exist | For each top-level input: its name/identifier, type or format, source path or reference, and an optional pointer to an associated data card or metadata file. |
 | `significant outputs` | Optional | For each top-level output artifact: its name/identifier, type or format, storage location or reference, and any associated metadata. May be omitted if outputs are captured at the activity level instead. |
-| `observations` | Optional | Free-text section for the workflow operator. Record anything noteworthy about this specific run: anomalies, performance notes, decisions made mid-run, deviations from expected behaviour, or anything that would help a future reader understand the context of the results. |
 
 ### 4.2 Workflow structure 
 
@@ -79,6 +78,10 @@ Aggregate resource consumption across all tasks and hosts. Report the dimensions
 | `gpu` | Optional | Aggregate GPU metrics. Relevant metrics may include total GPU memory consumed and average temperature. Omit entirely if GPUs were not used. |
 | `disk` | Optional | Aggregate disk I/O. Relevant metrics may include bytes read/written, number of read/write operations, and I/O timing. |
 | `network` | Optional | Aggregate network transfer. Relevant metrics may include total inbound and outbound bytes. |
+
+### 4.4 Observations
+
+Free-text section for the workflow operator. Record anything noteworthy about this specific run: anomalies, performance notes, decisions made mid-run, deviations from expected behaviour, or anything that would help a future reader understand the context of the results. 
 
 ---
 
