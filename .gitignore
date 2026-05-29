@@ -1,0 +1,8 @@
+outputs
+results
+
+__pycache__
+.DS_Store
+
+.env
+.gkey

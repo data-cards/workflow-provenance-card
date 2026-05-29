@@ -1,0 +1,48 @@
+[
+    {
+        "finetuned_model": "prithivMLmods/Llama-Doctor-3.2-3B-Instruct",
+        "base_models": [
+            "meta-llama/Llama-3.2-3B-Instruct"
+        ],
+        "datasets": [
+            "avaliev/chat_doctor"
+        ]
+    },
+    {
+        "finetuned_model": "empero-ai/openNemo-Cascade-2-30B-A3B",
+        "base_models": [
+            "nvidia/Nemotron-Cascade-2-30B-A3B"
+        ],
+        "datasets": [
+            "nvidia/Nemotron-Cascade-2-SFT-Data",
+            "nvidia/Nemotron-Cascade-2-RL-data"
+        ]
+    },
+    {
+        "finetuned_model": "ibm-nasa-geospatial/Prithvi-100M-multi-temporal-crop-classification",
+        "base_models": [
+            "ibm-nasa-geospatial/Prithvi-EO-1.0-100M"
+        ],
+        "datasets": [
+            "ibm-nasa-geospatial/multi-temporal-crop-classification"
+        ]
+    },
+    {
+        "finetuned_model": "cybersectony/phishing-email-detection-distilbert_v2.4.1",
+        "base_models": [
+            "distilbert/distilbert-base-uncased"
+        ],
+        "datasets": [
+            "cybersectony/PhishingEmailDetectionv2.0"
+        ]
+    },
+    {
+        "finetuned_model": "chinu-codes/llama-3.2-3b-pii-redactor-lora",
+        "base_models": [
+            "meta-llama/Llama-3.2-3B-Instruct"
+        ],
+        "datasets": [
+            "ai4privacy/pii-masking-200k"
+        ]
+    }
+]

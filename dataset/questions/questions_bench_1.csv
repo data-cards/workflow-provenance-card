@@ -1,0 +1,34 @@
+Category,Question,Type,Difficulty
+Control Flow,How many activities are present in the whole workflow?,workflow,easy
+Control Flow,What is the final status of the workflow?,workflow,easy
+Control Flow,What is the wall-clock execution time to completion of the workflow?,workflow,easy
+DataFlow,List all the parameters of the first activity of the workflow,workflow,easy
+Scheduling,What hardware was used in the workflow?,workflow,easy
+Scheduling,Who is responsible for this workflow (person or username or entity)?,workflow,easy
+Control Flow,What was the specific execution order of the tasks?,workflow,hard
+Control Flow,List all parameters for all activites in the workflow,workflow,easy
+Telemetry,What was the bottleneck during the workflow (activity taking the longest)?,workflow,hard
+Scheduling,Has the model been trained in a distributed setting?,workflow,easy
+Telemetry,What was the total energy consumption in kilowatt-hours of the GPU(s) during the workflow?,workflow,hard
+DataFlow,What significant input artifacts are involved in the generation of the finetuned model?,workflow,hard
+Telemetry,What is the total energy use for completing the workflow?,workflow,hard
+DataFlow,List all workflow input files with size larger than 100Mb,data,easy
+DataFlow,List all different file types used in the workflow,data,easy
+DataFlow,Identify the largest output of the workflow (by file size),data,easy
+Control Flow,What is the science domain of the dataset?,data,easy
+DataFlow,Does the dataset have a predetermined train-test split?,data,hard
+DataFlow,How many samples are present in the whole dataset?,data,hard
+DataFlow,What is the semantic format (e.g. strings; ints; bounding boxes) of the ground truth (if present)?,data,hard
+Control Flow,What is the specific task for which the dataset was created?,data,hard
+DataFlow,What is the size in byte of one sample?,data,hard
+DataFlow,What is the total size of the whole dataset?,data,hard
+Control Flow,What are the designed uses for this model?,model,easy
+Control Flow,How many epochs have been used in the finetuning?,model,easy
+DataFlow,How many model parameters (weights) does the model have?,model,easy
+Control Flow,What is the science domain of the model?,model,easy
+Control Flow,What is the task solved by this model (regression or classification or forecast etc.)?,model,hard
+Control Flow,What is the intended use of this model?,model,hard
+DataFlow,What is the size of the final model in Mb?,model,easy
+Scheduling,What technique was used to fine-tune the model? (e.g. LoRa; GAN...),model,hard
+Telemetry,What is the computational throughput of the model?,model,hard
+Control Flow,Are the performance shown in the pretrained version improved in the finetuning?,model,hard

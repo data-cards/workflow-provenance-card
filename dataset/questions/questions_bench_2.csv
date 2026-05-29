@@ -1,0 +1,18 @@
+Category,Question,Type,Difficulty
+Control Flow,How many activities are present in the whole workflow?,workflow,easy
+Control Flow,What is the final status of the workflow?,workflow,easy
+Control Flow,What is the wall-clock execution time to completion of the workflow?,workflow,easy
+DataFlow,List all the parameters of the first activity of the workflow,workflow,easy
+Scheduling,What hardware was used in the workflow?,workflow,easy
+Scheduling,Who is responsible for this workflow (person or username or entity)?,workflow,easy
+Control Flow,What was the specific execution order of the tasks?,workflow,hard
+Control Flow,List all parameters for all activites in the workflow,workflow,easy
+Telemetry,What was the bottleneck during the workflow (activity taking the longest)?,workflow,hard
+Scheduling,Has the model been trained in a distributed setting?,workflow,easy
+Telemetry,What was the total power consumption in Watts of the GPU(s) during the workflow?,workflow,hard
+DataFlow,What significant input artifacts are involved in the generation of the finetuned model?,workflow,hard
+DataFlow,List all workflow input files with size larger than 100Mb,data,easy
+DataFlow,List all different file types used in the workflow,data,easy
+DataFlow,Identify the largest output of the workflow (by file size),data,easy
+Control Flow,How many epochs have been used in the finetuning?,model,easy
+DataFlow,What is the size of the final model in Mb?,model,easy
