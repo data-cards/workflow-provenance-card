@@ -2,6 +2,7 @@ from flowcept.agents.flowcept_agent import FlowceptAgent
 import json
 import time
 import pandas as pd
+from pathlib import Path
 
 MODEL = "gpt-oss-120b"
 datapath = "ProvenanceCards/pipeline2_output/jsons/flowcept_buffer.jsonl"
@@ -43,7 +44,7 @@ agent.stop()
 
 ANSWERS = pd.read_csv("ProvenanceCards/dataset/questions/questions_bench_2.csv")
 ANSWERS["Answers"] = answers
-ANSWERS.to_csv(f"ProvenanceCards/dataset/answers/template_v6/bench2/fromjsonl/{MODEL}.csv")
-
-
+out_path = Path(f"ProvenanceCards/dataset/answers/bench2/fromjsonl/{MODEL}.csv")
+out_path.parent.mkdir(parents=True, exist_ok=True)
+ANSWERS.to_csv(out_path)
 

@@ -2,9 +2,6 @@
 import re
 import sklearn
 
-from src.consts import *
-
-
 STOPWORDS = {"the", "a", "an", "is", "are", "was", "were", "in", "of", "to", "and", "or", "it", "this", "that", "with", "for", "on", "at", "by", "from", "as", "be", "has", "have", "its"}
 
 
@@ -51,7 +48,6 @@ def coverage_score_per_token(total_card: str, question: str, answer : str) -> di
 # 2. HALLUCINATION RATE
 # ---------------------------------------------------------------------------
 
-# TODO: This has to be made better
 def is_claim_supported(claim: str, source_text: str, threshold: float = 0.3) -> bool:
     claim_words  = set(re.findall(r"\b\w+\b", claim.lower())) - STOPWORDS
     source_words = set(re.findall(r"\b\w+\b", source_text.lower()))
@@ -78,9 +74,17 @@ def hallucination_rate(description: str, source_text: str, threshold: float = 0.
 import ollama
 
 def llm_as_judge(question: str, answer: str, gt: str, model="llama3.2:3b") -> float:
+    prompt = (
+        "Evaluate whether the answer correctly addresses the question using the reference answer.\n"
+        "Return exactly one numeric score between 0.0 and 1.0, with no explanation.\n\n"
+        f"Question: {question}\n"
+        f"Candidate answer: {answer}\n"
+        f"Reference answer: {gt}\n"
+        "Score:"
+    )
+    response = None
     try:
         response = ollama.generate(model=model, prompt=prompt)
-        # Extract the first float found in the response
         score_str = response['response'].strip()
         return float(score_str)
     except Exception as e:
@@ -88,5 +92,6 @@ def llm_as_judge(question: str, answer: str, gt: str, model="llama3.2:3b") -> fl
             r = float(response['response'].strip().split("\n")[0])
             return r
         except: 
-            print(f"Error during LLM judging: {e}, {response['response'].strip()}")            
+            response_text = response['response'].strip() if response else ""
+            print(f"Error during LLM judging: {e}, {response_text}")
         return 0.0

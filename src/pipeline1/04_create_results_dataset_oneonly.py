@@ -8,7 +8,7 @@ sys.path.append("./")
 sys.path.append("./ProvenanceCards")
 from src.metrics_pipeline import *
 
-PATH_ANSWERS = Path("ProvenanceCards/dataset/answers/template_v6/")
+PATH_ANSWERS = Path("ProvenanceCards/dataset/answers/")
 PATH_CARDS = Path("ProvenanceCards/dataset/concat/")
 PATH_QUESTIONS = Path("ProvenanceCards/dataset/questions/questions_bench_1.csv")
 

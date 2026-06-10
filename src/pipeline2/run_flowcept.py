@@ -112,7 +112,7 @@ def run_step2():
         torch.save(model, "dlesym_pretrained.pt")
         yprov4ml.log_model("dlesym_pretrained", model, is_input=True)
         yprov4ml.log_source_code()
-        yprov4ml.log_execution_command(cmd="python", path="src/pipeline2/02_finetune_model.py")
+        yprov4ml.log_execution_command(cmd="python", path="src/pipeline2/finetune_model.py")
 
         # flowcept = Flowcept(workflow_name="finetuning", save_workflow=False, workflow_id="finetuning")
         # flowcept.start()
@@ -223,7 +223,7 @@ def run_step3():
         )
 
         yprov4ml.log_source_code()
-        yprov4ml.log_execution_command(cmd="python", path="src/pipeline2/03_run_inferences.py")
+        yprov4ml.log_execution_command(cmd="python", path="src/pipeline2/run_inferences.py")
         model = torch.nn.Linear(1,1)
         torch.save(model, "dlesym.pt")
         yprov4ml.log_model("dlesym_finetuned", model, context="inference", is_input=True)
@@ -330,7 +330,7 @@ def run_step4():
     )
 
     yprov4ml.log_source_code()
-    yprov4ml.log_execution_command(cmd="python", path="src/pipeline2/04_analysis.py")
+    yprov4ml.log_execution_command(cmd="python", path="src/pipeline2/analysis.py")
 
     VAR = "t2m0"
 

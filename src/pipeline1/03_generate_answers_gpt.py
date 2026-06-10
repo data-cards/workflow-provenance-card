@@ -20,7 +20,7 @@ headers = {
 }
 
 
-OUTPUTS_DIR = Path("ProvenanceCards/dataset/answers/template_v6")
+OUTPUTS_DIR = Path("ProvenanceCards/dataset/answers")
 os.makedirs(OUTPUTS_DIR, exist_ok=True)
 INPUTS_DIR = Path("ProvenanceCards/dataset/concat")
 
