@@ -6,7 +6,7 @@ from pathlib import Path
 
 PATH_CARDS = Path("dataset/cards")
 
-def load_cards(usecase: int, version=6) -> dict[str, str]:
+def load_cards(usecase: int) -> dict[str, str]:
     """Return {short_name: text} for all cards matching usecase."""
     cards: dict[str, str] = {}
     if not PATH_CARDS.exists(): return cards
@@ -16,7 +16,7 @@ def load_cards(usecase: int, version=6) -> dict[str, str]:
         if fpath.is_file() and str(usecase) in fname:
             cards[fname] = fpath.read_text(encoding="utf-8", errors="replace")
 
-    wf = PATH_CARDS / f"workflow_cards/template_v{version}/{usecase}_workflow.md"
+    wf = PATH_CARDS / f"workflow_cards/{usecase}_workflow_card.md"
     if wf.exists():
         cards[wf.name] = wf.read_text(encoding="utf-8", errors="replace")
     return cards
@@ -85,4 +85,3 @@ def heading_count(text: str) -> int:
 
 def code_block_count(text: str) -> int:
     return len(re.findall(r"```", text)) // 2
-

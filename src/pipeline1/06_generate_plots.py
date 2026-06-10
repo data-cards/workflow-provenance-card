@@ -332,7 +332,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 path = Path("dataset/cards")
-all_files = [f for f in os.listdir(path) if f.endswith('.md')] + [ "workflow_cards/template_v6/" +f for f in os.listdir("dataset/cards/workflow_cards/template_v6") if f.endswith('.md')] # Assuming json cards
+all_files = [f for f in os.listdir(path) if f.endswith('.md')] + [ "workflow_cards/" + f for f in os.listdir("dataset/cards/workflow_cards") if f.endswith('.md')] # Assuming json cards
 
 # Helper function to convert bytes to KB
 def to_kb(size_list):

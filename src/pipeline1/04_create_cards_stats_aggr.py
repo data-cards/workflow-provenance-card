@@ -34,7 +34,7 @@ def load_cards(usecase: int) -> dict[str, str]:
         if fpath.is_file() and str(usecase) in fname:
             cards[fname] = fpath.read_text(encoding="utf-8", errors="replace")
 
-    wf = PATH_CARDS / f"workflow_cards/template_v4/{usecase}_workflow.md"
+    wf = PATH_CARDS / f"workflow_cards/{usecase}_workflow_card.md"
     if wf.exists():
         cards[wf.name] = wf.read_text(encoding="utf-8", errors="replace")
     return cards

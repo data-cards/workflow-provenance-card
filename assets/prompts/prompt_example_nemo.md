@@ -46,7 +46,7 @@ Based strictly on the context card below, evaluate whether each Candidate Answer
 
 - **total_activities**: 6
 - **status_counts**: finished: 6, unknown: 0
-- **exec command**: python /workspace/run_pipeline_0/artifacts/src/pipeline2/03_run_inferences.py
+- **exec command**: python /workspace/run_pipeline_0/artifacts/src/pipeline2/run_inferences.py
 - **arguments**: ~
 
 **Significant Inputs:**
@@ -376,7 +376,7 @@ Based strictly on the context card below, evaluate whether each Candidate Answer
 
 - **total_activities**: 3
 - **status_counts**: finished: 3, unknown: 0
-- **exec command**: python /workspace/finetuning_0/artifacts/src/pipeline2/02_finetune_model.py
+- **exec command**: python /workspace/finetuning_0/artifacts/src/pipeline2/finetune_model.py
 - **arguments**: ~
 
 **Significant Inputs:**
@@ -611,7 +611,7 @@ Based strictly on the context card below, evaluate whether each Candidate Answer
 
 - **total_activities**: 1
 - **status_counts**: finished: 1, unknown: 0
-- **exec command**: python /workspace/inferences_0/artifacts/src/pipeline2/03_run_inferences.py
+- **exec command**: python /workspace/inferences_0/artifacts/src/pipeline2/run_inferences.py
 - **arguments**: ~
 
 **Significant Inputs:**
@@ -619,8 +619,8 @@ Based strictly on the context card below, evaluate whether each Candidate Answer
   - `input_tensor` — format: file, size: 8390234 bytes, source: input_tensor_0.pt
   - `Original_requirements` — format: file, size: 40 bytes, source: requirements.txt
   - `requirements` — format: file, size: 40 bytes, source: prov/inferences_0/artifacts_GR0/./requirements.txt
-  - `Original_inferences` — format: file, size: 4081 bytes, source: src/pipeline2/inferences.py
-  - `inferences` — format: file, size: 4081 bytes, source: prov/inferences_0/artifacts_GR0/src/src/pipeline2/inferences.py
+  - `Original_inferences` — format: file, size: 4081 bytes, source: src/pipeline2/run_inferences.py
+  - `inferences` — format: file, size: 4081 bytes, source: prov/inferences_0/artifacts_GR0/src/src/pipeline2/run_inferences.py
 
 **Significant Outputs:**
   - `output` — type: file, size: 1500 bytes, location: output.nc
@@ -672,8 +672,8 @@ Based strictly on the context card below, evaluate whether each Candidate Answer
     - `input_tensor//inferences_GR0_0`
     - `Original_requirements.txt//inferences_GR0_0`
     - `requirements.txt//inferences_GR0_0`
-    - `Original_inferences.py//inferences_GR0_0`
-    - `inferences.py//inferences_GR0_0`
+    - `Original_run_inferences.py//inferences_GR0_0`
+    - `run_inferences.py//inferences_GR0_0`
 - **outputs**:
     - `apple_gpu//cpu_usage//inference` — provml:Metric, path: prov/inferences_0/metrics_GR0/cpu_usage_inference_apple_gpu_GR0.csv
     - `apple_gpu//memory_usage//inference` — provml:Metric, path: prov/inferences_0/metrics_GR0/memory_usage_inference_apple_gpu_GR0.csv
@@ -759,7 +759,7 @@ Based strictly on the context card below, evaluate whether each Candidate Answer
 
 - **total_activities**: 2
 - **status_counts**: finished: 2, unknown: 0
-- **exec command**: python /workspace/analysis_0/artifacts/src/pipeline2/04_analysis.py
+- **exec command**: python /workspace/analysis_0/artifacts/src/pipeline2/analysis.py
 - **arguments**: ~
 
 **Significant Inputs:**

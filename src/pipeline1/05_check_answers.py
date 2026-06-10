@@ -4,8 +4,8 @@ from pathlib import Path
 
 USECASE = 1
 TYPE = "concat_without_0"
-ANSWERS = Path(f"dataset/answers/template_v5/{USECASE}_{TYPE}.md") # question, answer
-QUESTIONS = Path("dataset/questions/Questions_latest.csv") # question
+ANSWERS = Path(f"dataset/answers/{USECASE}_{TYPE}.md") # question, answer
+QUESTIONS = Path("dataset/questions/questions_bench_1.csv") # question
 GTS = Path(f"dataset/gt/{USECASE}_answers.csv") # "q";"a";"reasoning"
 SCORES_LEAVEONEOUT = Path("results/leaveoneout2.csv") # type_;category;answer;usecase;without;similarity;llm_as_judge_1;llm_as_judge_2
 SCORES_ONEONLY = Path("results/leaveoneout3.csv") # type_;category;answer;usecase;without;similarity;llm_as_judge_1;llm_as_judge_2

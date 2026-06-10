@@ -66,7 +66,6 @@ def process_single_card(card_path: Path):
         # "containing in each row one of the answers, separated by the '\n' token, "
         # "and include no header and no initial phrase, I want to be able to parse all the answers simply "
         # "splitting on the new row token:\n"
-        # TODO ask gpt --> judges agree ment on bench 2
     )
     prompt += "\n".join(QUESTIONS.tolist())
 
@@ -75,9 +74,11 @@ def process_single_card(card_path: Path):
 
     answers = response.replace(",", ";").split("\n")
 
-    ANSWERS = pd.read_csv(QUESTIONS_PATH)#pd.read_csv(f"ProvenanceCards/dataset/answers/template_v6/bench2/fromjsonl/{MODEL_NAME}.csv")
+    ANSWERS = pd.read_csv(QUESTIONS_PATH)#pd.read_csv(f"ProvenanceCards/dataset/answers/bench2/fromjsonl/{MODEL_NAME}.csv")
     ANSWERS["Answer"] = answers
-    ANSWERS.to_csv(f"dataset/answers/template_v6/bench2/fromcard/{MODEL_NAME}.csv")
+    out_path = Path(f"dataset/answers/bench2/fromcard/{MODEL_NAME}.csv")
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    ANSWERS.to_csv(out_path)
 
 if __name__ == "__main__":
     process_single_card(SINGLE_CARD_PATH)

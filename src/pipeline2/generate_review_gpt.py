@@ -18,7 +18,7 @@ QUESTIONS_PATH = "dataset/questions/questions_bench_2.csv"
 
 # Load questions
 QUESTIONS = pd.read_csv(QUESTIONS_PATH)["Question"]
-ANSWERS = pd.read_csv("dataset/answers/template_v6/bench2/fromcard/nemotron-3-nano.csv")
+ANSWERS = pd.read_csv("dataset/answers/bench2/fromcard/nemotron-3-nano.csv")
 answers = ANSWERS["Answer"].tolist()
 
 def ollama_chat(prompt: str) -> str:
@@ -87,7 +87,9 @@ def process_single_card(card_path: Path):
         ANSWERS["Rating_N"] = ratings
     else: 
         ANSWERS["Rating_G"] = ratings
-    ANSWERS.to_csv(f"dataset/answers/template_v6/bench2/fromcard/nemotron-3-nano.csv")
+    out_path = Path("dataset/answers/bench2/fromcard/nemotron-3-nano.csv")
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    ANSWERS.to_csv(out_path)
 
     # with open(out_filepath, "a") as f: 
     #     for r in ratings: 

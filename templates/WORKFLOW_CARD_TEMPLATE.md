@@ -1,6 +1,10 @@
 # Workflow Card Template
 
-A structured template for documenting scientific / ML workflow runs. Each field has a description of what it should contain and is marked as **Required** or **Optional**.
+```yaml
+version: v6
+```
+
+A structured template for documenting scientific workflow runs. Each field has a description of what it should contain and is marked as **Required** or **Optional**.
 
 Fields marked `~` indicate a value that was not captured; this is acceptable for optional fields.
 
@@ -46,7 +50,7 @@ Fields marked `~` indicate a value that was not captured; this is acceptable for
 
 ---
 
-## 4. Overview
+## 4. Workflow Overview
 
 A high-level picture of the run as a whole: what it did, how it performed, what it consumed, and anything worth noting. All narrative and aggregate information lives here before the reader descends into per-activity detail.
 
@@ -57,12 +61,17 @@ A high-level picture of the run as a whole: what it did, how it performed, what 
 | `total_activities` | Required | Total number of distinct activity types (stages / steps) in the workflow. |
 | `status_counts` | Required | Counts of tasks by their final status across all activities (e.g. finished, failed, skipped). |
 | `arguments` | Optional | Global arguments or configuration flags that governed the entire run — anything affecting reproducibility such as random seeds, determinism flags, or boolean toggles. The set of keys is not prescribed; document whatever is relevant to your workflow. |
-| `notable inputs` | Required if inputs exist | For each top-level input: its name/identifier, type or format, source path or reference, and an optional pointer to an associated data card or metadata file. |
-| `notable outputs` | Optional | For each top-level output artifact: its name/identifier, type or format, storage location or reference, and any associated metadata. May be omitted if outputs are captured at the activity level instead. |
-| `structure` | Optional | A visual or textual representation of how activities connect to each other. May be an ASCII-art DAG, a Mermaid diagram, a link to an image, or a numbered list of stages with their dependencies. |
-| `observations` | Optional | Free-text section for the workflow operator. Record anything noteworthy about this specific run: anomalies, performance notes, decisions made mid-run, deviations from expected behaviour, or anything that would help a future reader understand the context of the results. |
+| `significant inputs` | Required if inputs exist | For each top-level input: its name/identifier, type or format, source path or reference, and an optional pointer to an associated data card or metadata file. |
+| `significant outputs` | Optional | For each top-level output artifact: its name/identifier, type or format, storage location or reference, and any associated metadata. May be omitted if outputs are captured at the activity level instead. |
 
-### 4.2 Resource Usage
+### 4.2 Workflow structure 
+
+
+| Field | Required? | Description |
+|---|---|---|
+| `structure` | Optional | A visual or textual representation of how activities connect to each other. May be an ASCII-art DAG, a Mermaid diagram, a link to an image, or a numbered list of stages with their dependencies. |
+
+### 4.3 Resource Usage
 
 Aggregate resource consumption across all tasks and hosts. Report the dimensions your monitoring system captures; omit or mark `~` anything not measured. The specific metric names within each subsection are suggestions, not requirements.
 
@@ -73,6 +82,10 @@ Aggregate resource consumption across all tasks and hosts. Report the dimensions
 | `gpu` | Optional | Aggregate GPU metrics. Relevant metrics may include total GPU memory consumed and average temperature. Omit entirely if GPUs were not used. |
 | `disk` | Optional | Aggregate disk I/O. Relevant metrics may include bytes read/written, number of read/write operations, and I/O timing. |
 | `network` | Optional | Aggregate network transfer. Relevant metrics may include total inbound and outbound bytes. |
+
+### 4.4 Observations
+
+Free-text section for the workflow operator. Record anything noteworthy about this specific run: anomalies, performance notes, decisions made mid-run, deviations from expected behaviour, or anything that would help a future reader understand the context of the results. These observations may be written manually or automatically derived from provenance data, such as long-running activities, activities that consume unusually high resources, relevant KPI threshold events, repeated failures, or unexpected input/output patterns.
 
 ---
 
@@ -94,22 +107,26 @@ Repeat this block for each activity (stage / step) in the workflow. An activity 
 
 ---
 
-## 6. Significant Artifacts
+## 6. Significant Workflow Artifacts
 
 Repeat the input block for each significant input artifact, and the output block for each significant output artifact. List only the artifacts required to reproduce the run or to interpret its results.
 
-### Input Artifact
+### Input Artifacts
 
 | Field | Required? | Description |
 |---|---|---|
-| `name` | Required | A short identifier for this input artifact. |
-| `description` | Required | Human-readable description of what this artifact is, including its format, origin, and relevance to the workflow. |
+| `identifier` | Required | A short identifier for this input artifact. |
 | `reference` | Required | Path, URI, or identifier that uniquely locates this artifact so it can be retrieved later. |
+| `description` | Optional | Human-readable description of what this artifact is, including its format, origin, and relevance to the workflow. |
+| `size` | Optional | the storage size of the artifact|
+| `additional metadata` | Optional | Any further information that does not fit the other fields, such as checksums, licenses, creation timestamps, or domain-specific annotations. The set of keys is not prescribed.|
 
-### Output Artifact
+### Output Artifacts
 
 | Field | Required? | Description |
 |---|---|---|
-| `name` | Required | A short identifier for this output artifact. |
-| `description` | Required | Human-readable description of what this artifact is, including its format and what it represents. |
+| `identifier` | Required | A short identifier for this output artifact. |
 | `reference` | Required | Path, URI, or identifier that uniquely locates this artifact so it can be retrieved later. |
+| `description` | Optional | Human-readable description of what this artifact is, including its format, origin, and relevance to the workflow. |
+| `size` | Optional | the storage size of the artifact|
+| `additional metadata` | Optional | Any further information that does not fit the other fields, such as checksums, licenses, creation timestamps, or domain-specific annotations. The set of keys is not prescribed.|

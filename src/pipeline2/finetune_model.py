@@ -35,7 +35,7 @@ def run_step2():
         torch.save(model, "dlesym_pretrained.pt")
         yprov4ml.log_model("dlesym_pretrained", model, is_input=True)
         yprov4ml.log_source_code()
-        yprov4ml.log_execution_command(cmd="python", path="src/pipeline2/02_finetune_model.py")
+        yprov4ml.log_execution_command(cmd="python", path="src/pipeline2/finetune_model.py")
 
         flowcept = Flowcept(workflow_name="finetuning", save_workflow=False, workflow_id="finetuning")
         flowcept.start()

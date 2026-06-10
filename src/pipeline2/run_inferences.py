@@ -29,7 +29,7 @@ def run_step3():
         )
 
         yprov4ml.log_source_code()
-        yprov4ml.log_execution_command(cmd="python", path="src/pipeline2/03_run_inferences.py")
+        yprov4ml.log_execution_command(cmd="python", path="src/pipeline2/run_inferences.py")
         model = torch.nn.Linear(1,1)
         torch.save(model, "dlesym.pt")
         yprov4ml.log_model("dlesym_finetuned", model, context="inference", is_input=True)

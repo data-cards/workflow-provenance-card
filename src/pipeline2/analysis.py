@@ -30,7 +30,7 @@ def run_step4():
     )
 
     yprov4ml.log_source_code()
-    yprov4ml.log_execution_command(cmd="python", path="src/pipeline2/04_analysis.py")
+    yprov4ml.log_execution_command(cmd="python", path="src/pipeline2/analysis.py")
 
     flowcept = Flowcept(workflow_name="finetuning", workflow_id="finetuning")
     flowcept.start()
@@ -126,4 +126,3 @@ def run_step4():
     os.system(f"rm results.csv")
     os.system(f"rm input_tensor.pt")
     os.system(f"rm error_modes_2x6.pdf")
-
